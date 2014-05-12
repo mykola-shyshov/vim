@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/ecentric/projects/trackoin/app/scripts'
+let g:netrw_dirhist_2='/Users/ecentric/projects/trackoin/app/images'
+let g:netrw_dirhist_3='/Users/ecentric/projects/trackoin/app/scripts'
+let g:netrw_dirhist_4='/Users/ecentric/projects/trackoin/app'
