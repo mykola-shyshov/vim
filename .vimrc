@@ -1,9 +1,13 @@
+colorscheme molokai
+
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
-nmap <c-u> <ESC>
 vmap <c-u> <ESC>
 imap <c-u> <ESC>
 imap <c-space> <c-x><c-o>
+" unmap <S-#>
+nmap <S-#> <S-^>
+noremap <space> za
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,javascript let b:comment_leader = '// '
@@ -15,11 +19,11 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> <c-c> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <c-x> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
-noremap <space> za
-colorscheme molokai
 syntax on
+
 set expandtab
 set tabstop=4
+set shiftwidth=4
 set autoindent
 set pastetoggle=<F2>
 set foldmethod=indent
@@ -43,27 +47,26 @@ set ruler
 set title
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-" Automatic commands
-if has("autocmd")
-        " Enable file type detection
-        filetype on
-        " Treat .json files as .js
-        autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-endif
+
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 " bundle
-"filetype off
+set nocompatible
+filetype off 
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'https://github.com/yegappan/mru.git'
+Plugin 'https://github.com/kien/ctrlp.vim.git'
+
+Plugin 'https://github.com/tomtom/tlib_vim.git'
+Plugin 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+Plugin 'https://github.com/garbas/vim-snipmate.git'
+
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#end()
 
-" jscomplete
-Bundle 'https://github.com/teramako/jscomplete-vim.git'
-Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
-autocmd FileType javascript
-    \ :setl omnifunc=jscomplete#CompleteJS
-let g:jscomplete_use = ['dom', 'moz']
-
-" supporting finding files, displays menu
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+filetype plugin indent on
+filetype plugin on
 

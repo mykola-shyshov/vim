@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/ecentric/projects/trackoin/app/scripts'
-let g:netrw_dirhist_2='/Users/ecentric/projects/trackoin/app/images'
-let g:netrw_dirhist_3='/Users/ecentric/projects/trackoin/app/scripts'
-let g:netrw_dirhist_4='/Users/ecentric/projects/trackoin/app'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ecentric/WebstormProjects/metrika-bem-dev/blocks'
+let g:netrw_dirhist_2='/Users/ecentric/WebstormProjects/metrika-bem-dev'
+let g:netrw_dirhist_3='/Users/ecentric/projects/mongo'
+let g:netrw_dirhist_4='/Users/ecentric/projects'
+let g:netrw_dirhist_5='/Users/ecentric/projects/mongo'
+let g:netrw_dirhist_6='/Users/ecentric/projects'
+let g:netrw_dirhist_7='/Users/ecentric/projects/mongo'
+let g:netrw_dirhist_8='/Users/ecentric/bk_projects/vod-bo/target/classes'
