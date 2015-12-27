@@ -2,12 +2,14 @@ colorscheme molokai
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
-vmap <c-u> <ESC>
-imap <c-u> <ESC>
+:"vmap <c-u> <ESC>
+"imap <c-u> <ESC>
 imap <c-space> <c-x><c-o>
 " unmap <S-#>
 nmap <S-#> <S-^>
 noremap <space> za
+nnoremap ,cd :cd %:p:h<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,javascript let b:comment_leader = '// '
@@ -27,6 +29,7 @@ set shiftwidth=4
 set autoindent
 set pastetoggle=<F2>
 set foldmethod=indent
+set foldlevel=99
 " Optimize for fast terminal connections
 set ttyfast
 " Add the g flag to search/replace by default
@@ -56,9 +59,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/yegappan/mru.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+
+Plugin 'scrooloose/nerdTree'
 
 Plugin 'https://github.com/tomtom/tlib_vim.git'
 Plugin 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
