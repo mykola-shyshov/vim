@@ -5,11 +5,17 @@ imap <c-s> <Esc>:w<CR>a
 :"vmap <c-u> <ESC>
 "imap <c-u> <ESC>
 imap <c-space> <c-x><c-o>
+imap <C-J> <Plug>snipMateNextOrTrigger
 " unmap <S-#>
 nmap <S-#> <S-^>
 noremap <space> za
 nnoremap ,cd :cd %:p:h<CR>
 map <C-n> :NERDTreeToggle<CR>
+map <C-a> <esc>ggVG<CR>
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,javascript let b:comment_leader = '// '
@@ -22,7 +28,9 @@ noremap <silent> <c-c> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')
 noremap <silent> <c-x> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 syntax on
+au BufReadPost *.hbs set syntax=html
 
+set backspace=2
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -50,11 +58,19 @@ set ruler
 set title
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+set pastetoggle=<F10>
+set runtimepath+=~/.vim
+set rtp+=~/.vim
 
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \ }
+
+let g:ctrlp_root_markers = ['gulpfile.js']
+
 " bundle
-set nocompatible
 filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -67,7 +83,9 @@ Plugin 'scrooloose/nerdTree'
 
 Plugin 'https://github.com/tomtom/tlib_vim.git'
 Plugin 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
-Plugin 'https://github.com/garbas/vim-snipmate.git'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" Plugin 'pangloss/vim-javascript'
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#end()
