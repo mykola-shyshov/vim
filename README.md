@@ -14,6 +14,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 2. spf13
+---
 https://github.com/spf13/spf13-vim
 
 
