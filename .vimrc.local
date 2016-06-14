@@ -1,0 +1,29 @@
+let NERDTreeShowBookmarks=0
+let NERDTreeChDirMode=1
+let NERDTreeQuitOnOpen=0
+let NERDTreeMouseMode=0
+let NERDTreeShowHidden=0
+let NERDTreeKeepTreeInNewTab=0
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+let g:indent_guides_start_level=1
+let g:indent_guides_guide_size=0
+let g:indent_guides_enable_on_vim_startup=0
+
+let g:nerdtree_tabs_autoclose=0
+
+set scrolljump=1                " Lines to scroll when cursor leaves screen
+set shiftwidth=2
+set tabstop=2
+
+autocmd FileType c,cpp,java,javascript let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> <c-c> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <c-x> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+map <C-a> <esc>ggVG<CR>
+

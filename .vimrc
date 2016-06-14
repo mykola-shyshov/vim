@@ -1,4 +1,10 @@
-colorscheme molokai
+" colorscheme molokai
+
+syntax enable
+se t_Co=16
+let g:solarized_termcolors=256  
+set background=dark
+colorscheme solarized
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
@@ -27,7 +33,8 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> <c-c> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <c-x> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
-syntax on
+noremap <C-l> :res +10<CR>
+" syntax on
 au BufReadPost *.hbs set syntax=html
 
 set backspace=2
@@ -50,7 +57,7 @@ set ignorecase
 set laststatus=2
 " Respect modeline in files
 set modeline
-set modelines=4
+set modelines=2
 set mouse=a
 " Show the cursor position
 set ruler
@@ -73,6 +80,10 @@ let g:ctrlp_root_markers = ['gulpfile.js']
 " bundle
 filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" toogele background  
+call togglebg#map("<F5>")
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -85,9 +96,12 @@ Plugin 'https://github.com/tomtom/tlib_vim.git'
 Plugin 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+" Plugin 'flazz/vim-colorschemes'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'pangloss/vim-javascript'
 
 set rtp+=~/.vim/bundle/vundle/
+
 call vundle#end()
 
 filetype plugin indent on
